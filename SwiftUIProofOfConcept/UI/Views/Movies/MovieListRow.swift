@@ -18,7 +18,6 @@ struct MovieListRow: View {
                     image
                         .resizable()
                         .scaledToFit()
-                        .
                 default:
                     ProgressView()
                 }

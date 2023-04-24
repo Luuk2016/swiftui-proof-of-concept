@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("selectedTheme") var selectedTheme: Theme = .system
-    
+    @ObservedObject var themeRepository: ThemeRepository = ThemeRepository.shared
+        
     var body: some View {
         VStack {
             List {
                 Section(header: Text("Theme")) {
-                    Picker("Theme", selection: $selectedTheme) {
+                    Picker("Theme", selection: themeRepository.$selectedTheme) {
                         ForEach(Theme.allCases, id: \.self) { theme in
                             Text(theme.friendlyName)
                                 .tag(theme)

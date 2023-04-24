@@ -9,24 +9,13 @@ import SwiftUI
 
 @main
 struct Application: App {
-    @AppStorage("selectedTheme") var selectedTheme: Theme = .system
-    
-    private var preferredColorScheme: ColorScheme? {
-        switch(selectedTheme) {
-        case .dark:
-            return .dark
-        case .light:
-            return .light
-        case .system:
-            return nil
-        }
-    }
-    
+    @ObservedObject var themeRepository: ThemeRepository = ThemeRepository.shared
+
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 WelcomeView()
-                    .preferredColorScheme(preferredColorScheme)
+                    .preferredColorScheme(themeRepository.getPreferredColorScheme())
             }
         }
     }
