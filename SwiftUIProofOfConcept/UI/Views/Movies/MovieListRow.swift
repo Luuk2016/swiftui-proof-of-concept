@@ -8,26 +8,44 @@
 import SwiftUI
 
 struct MovieListRow: View {
+    var movie: Movie
+    
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Jonagored.jpg")!) { phase in
-                switch phase {
-                case .failure:
-                    Text("Ophalen mislukt")
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFit()
-                default:
-                    ProgressView()
-                }
+            AsyncImage(url: movie.posterImageURL) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 80, height: 120)
+            } placeholder: {
+                ProgressView()
+                    .frame(width: 80, height: 120)
             }
+            .clipped()
+            .cornerRadius(10)
+
+            VStack(alignment:.leading) {
+                Text(movie.title)
+                    .foregroundColor(.white)
+                    .font(.title3)
+
+                HStack {
+                    Image(systemName: "hand.thumbsup.fill")
+                    Text(String(format: "%.1f", movie.averageVote))
+                }
+                .foregroundColor(.yellow)
+            }
+            Spacer()
         }
+        .padding()
+        .background(Color("MovieBackground"))
+        .cornerRadius(20)
+        .padding(.horizontal)
     }
 }
 
 struct MovieListRow_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListRow()
+        MovieListRow(movie: Movie.testMovie1)
     }
 }

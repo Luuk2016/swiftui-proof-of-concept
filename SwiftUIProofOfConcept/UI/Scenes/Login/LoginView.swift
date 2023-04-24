@@ -11,7 +11,7 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
-    private var buttonEnabled: Bool {
+    private var buttonDisabled: Bool {
         [email, password].contains(where: \.isEmpty)
     }
     
@@ -28,11 +28,13 @@ struct LoginView: View {
             
             CustomSecureField(title: "Password", text: $password)
             
-            Button("Login") {
-                print("Hello world!")
+            NavigationLink {
+                HomeTabView()
+            } label: {
+                Text("Login")
             }
-            .disabled(!buttonEnabled)
             .buttonStyle(PrimaryButtonStyle())
+            .disabled(buttonDisabled)
             
             Spacer()
             

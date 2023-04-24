@@ -25,6 +25,6 @@ struct CustomTextField: View {
         
         Divider()
             .padding(.horizontal)
-            .padding(.bottom, 25)
+            .padding(.bottom, 20)
     }
 }

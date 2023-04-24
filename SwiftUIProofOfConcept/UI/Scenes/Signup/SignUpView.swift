@@ -10,29 +10,37 @@ import SwiftUI
 struct SignUpView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var termsAndConditions: Bool = false
     
-    private var buttonEnabled: Bool {
-        [email, password].contains(where: \.isEmpty)
+    private var buttonDisabled: Bool {
+        [email, password].contains(where: \.isEmpty) || !termsAndConditions
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 18) {
             Spacer()
             
             Text("Create an account")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .padding(.bottom, 30)
-                                
+                .padding(.bottom, 25)
+            
             CustomTextField(title: "Email address", text: $email)
             
             CustomSecureField(title: "Password", text: $password)
             
-            Button("Register") {
-                print("Hello world!")
+            Toggle(isOn: $termsAndConditions) {
+                Text("I agree with the terms & conditions")
             }
-            .disabled(!buttonEnabled)
+            .padding(.bottom, 20)
+            
+            NavigationLink {
+                HomeTabView()
+            } label: {
+                Text("Register")
+            }
             .buttonStyle(PrimaryButtonStyle())
+            .disabled(buttonDisabled)
             
             Spacer()
             

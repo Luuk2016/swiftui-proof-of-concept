@@ -25,6 +25,6 @@ struct CustomSecureField: View {
         
         Divider()
             .padding(.horizontal)
-            .padding(.bottom, 25)
+            .padding(.bottom, 20)
     }
 }
