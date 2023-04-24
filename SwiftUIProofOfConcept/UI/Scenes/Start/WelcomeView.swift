@@ -41,6 +41,7 @@ struct WelcomeView: View {
             }
             .buttonStyle(SecondaryButtonStyle())
         }
+        .navigationBarBackButtonHidden(true)
         .padding()
         .navigationTitle("Welcome")
     }

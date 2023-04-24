@@ -12,7 +12,7 @@ struct LoginView: View {
     @State private var password: String = ""
     
     private var buttonEnabled: Bool {
-        !email.isEmpty && !password.isEmpty
+        [email, password].contains(where: \.isEmpty)
     }
     
     var body: some View {

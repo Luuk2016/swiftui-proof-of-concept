@@ -17,11 +17,11 @@ struct HomeTabView: View {
                     Label("Home", systemImage: "house.fill")
                 }
                 .tag("Home")
-            ArticlesView()
+            MoviesView()
                 .tabItem {
-                    Label("Articles", systemImage: "list.bullet")
+                    Label("Movies", systemImage: "play.circle")
                 }
-                .tag("Articles")
+                .tag("Movies")
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
@@ -29,6 +29,7 @@ struct HomeTabView: View {
                 .tag("Settings")
         }
         .navigationTitle(selection)
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
     }
 }

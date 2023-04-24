@@ -15,7 +15,7 @@
 		1566884529F16B30005C446B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566884429F16B30005C446B /* SignUpView.swift */; };
 		1566884E29F1898C005C446B /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566884D29F1898C005C446B /* HomeTabView.swift */; };
 		1566885129F18C77005C446B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566885029F18C77005C446B /* SettingsView.swift */; };
-		1566885329F19315005C446B /* ArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566885229F19315005C446B /* ArticlesView.swift */; };
+		1566885329F19315005C446B /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566885229F19315005C446B /* MoviesView.swift */; };
 		156DA7EF29F0281000720BC7 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156DA7EE29F0281000720BC7 /* Application.swift */; };
 		156DA7F129F0281000720BC7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156DA7F029F0281000720BC7 /* WelcomeView.swift */; };
 		156DA7F329F0281100720BC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156DA7F229F0281100720BC7 /* Assets.xcassets */; };
@@ -23,6 +23,8 @@
 		15F292C829F289A200D84A0C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F292C729F289A200D84A0C /* HomeView.swift */; };
 		15F292CB29F28B8800D84A0C /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F292CA29F28B8800D84A0C /* UIApplication+Extensions.swift */; };
 		15F292D029F2904D00D84A0C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F292CF29F2904D00D84A0C /* Theme.swift */; };
+		15F292D529F2BC1700D84A0C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F292D429F2BC1700D84A0C /* LoginViewModel.swift */; };
+		15F292D829F2D9B400D84A0C /* MovieListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F292D729F2D9B400D84A0C /* MovieListRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +36,7 @@
 		1566884429F16B30005C446B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1566884D29F1898C005C446B /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		1566885029F18C77005C446B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		1566885229F19315005C446B /* ArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesView.swift; sourceTree = "<group>"; };
+		1566885229F19315005C446B /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
 		156DA7EB29F0281000720BC7 /* SwiftUIProofOfConcept.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIProofOfConcept.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156DA7EE29F0281000720BC7 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		156DA7F029F0281000720BC7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -43,6 +45,8 @@
 		15F292C729F289A200D84A0C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		15F292CA29F28B8800D84A0C /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		15F292CF29F2904D00D84A0C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		15F292D429F2BC1700D84A0C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		15F292D729F2D9B400D84A0C /* MovieListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		1566883629F14940005C446B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				15F292D629F2D95200D84A0C /* Movies */,
 				1566884329F164F5005C446B /* ButtonStyles */,
 				1566883F29F16416005C446B /* CustomSecureField.swift */,
 				1566884129F1646B005C446B /* CustomTextField.swift */,
@@ -80,6 +85,7 @@
 			children = (
 				156DA7F029F0281000720BC7 /* WelcomeView.swift */,
 				1566883429F1477F005C446B /* LoginView.swift */,
+				15F292D429F2BC1700D84A0C /* LoginViewModel.swift */,
 				1566884429F16B30005C446B /* SignUpView.swift */,
 			);
 			path = Start;
@@ -128,7 +134,7 @@
 				1566884F29F18C4F005C446B /* Start */,
 				1566884D29F1898C005C446B /* HomeTabView.swift */,
 				15F292C729F289A200D84A0C /* HomeView.swift */,
-				1566885229F19315005C446B /* ArticlesView.swift */,
+				1566885229F19315005C446B /* MoviesView.swift */,
 				1566885029F18C77005C446B /* SettingsView.swift */,
 			);
 			path = Scenes;
@@ -165,6 +171,14 @@
 				15F292CF29F2904D00D84A0C /* Theme.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		15F292D629F2D95200D84A0C /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				15F292D729F2D9B400D84A0C /* MovieListRow.swift */,
+			);
+			path = Movies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,13 +252,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1566884E29F1898C005C446B /* HomeTabView.swift in Sources */,
+				15F292D829F2D9B400D84A0C /* MovieListRow.swift in Sources */,
 				1566884229F1646B005C446B /* CustomTextField.swift in Sources */,
 				1566883E29F161A9005C446B /* SecondaryButtonStyle.swift in Sources */,
 				1566883529F1477F005C446B /* LoginView.swift in Sources */,
 				15F292CB29F28B8800D84A0C /* UIApplication+Extensions.swift in Sources */,
-				1566885329F19315005C446B /* ArticlesView.swift in Sources */,
+				1566885329F19315005C446B /* MoviesView.swift in Sources */,
 				156DA7F129F0281000720BC7 /* WelcomeView.swift in Sources */,
 				1566885129F18C77005C446B /* SettingsView.swift in Sources */,
+				15F292D529F2BC1700D84A0C /* LoginViewModel.swift in Sources */,
 				1566884529F16B30005C446B /* SignUpView.swift in Sources */,
 				1566883C29F1570C005C446B /* PrimaryButtonStyle.swift in Sources */,
 				15F292C829F289A200D84A0C /* HomeView.swift in Sources */,

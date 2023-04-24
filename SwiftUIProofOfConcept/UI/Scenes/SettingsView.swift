@@ -16,10 +16,19 @@ struct SettingsView: View {
                 Section(header: Text("Theme")) {
                     Picker("Theme", selection: $selectedTheme) {
                         ForEach(Theme.allCases, id: \.self) { theme in
-                            Text(theme.friendlyName).tag(theme)
+                            Text(theme.friendlyName)
+                                .tag(theme)
                         }
                     }
                     .pickerStyle(.segmented)
+                }
+                
+                Section(header: Text("Actions")) {
+                    NavigationLink {
+                        WelcomeView()
+                    } label: {
+                        Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
+                    }
                 }
                 
                 Section(header: Text("About")) {
