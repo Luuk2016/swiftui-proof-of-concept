@@ -8,13 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var termsAndConditions: Bool = false
-    
-    private var buttonDisabled: Bool {
-        [email, password].contains(where: \.isEmpty) || !termsAndConditions
-    }
+    @ObservedObject private var viewModel: SignUpViewModel = SignUpViewModel()
     
     var body: some View {
         VStack(spacing: 18) {
@@ -25,11 +19,13 @@ struct SignUpView: View {
                 .fontWeight(.bold)
                 .padding(.bottom, 25)
             
-            CustomTextField(title: "Email address", text: $email)
+            CustomTextField(title: "Full name", text: $viewModel.fullName)
             
-            CustomSecureField(title: "Password", text: $password)
+            CustomTextField(title: "Email address", text: $viewModel.email)
             
-            Toggle(isOn: $termsAndConditions) {
+            CustomSecureField(title: "Password", text: $viewModel.password)
+                        
+            Toggle(isOn: $viewModel.termsAndConditions) {
                 Text("I agree with the terms & conditions")
             }
             .padding(.bottom, 20)
@@ -40,7 +36,7 @@ struct SignUpView: View {
                 Text("Register")
             }
             .buttonStyle(PrimaryButtonStyle())
-            .disabled(buttonDisabled)
+            .disabled(!viewModel.formIsValid)
             
             Spacer()
             

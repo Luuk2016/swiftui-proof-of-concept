@@ -8,12 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    
-    private var buttonDisabled: Bool {
-        [email, password].contains(where: \.isEmpty)
-    }
+    @ObservedObject private var viewModel: LoginViewModel = LoginViewModel()
     
     var body: some View {
         VStack {
@@ -24,9 +19,9 @@ struct LoginView: View {
                 .fontWeight(.bold)
                 .padding(.bottom, 30)
                         
-            CustomTextField(title: "Email address", text: $email)
+            CustomTextField(title: "Email address", text: $viewModel.email)
             
-            CustomSecureField(title: "Password", text: $password)
+            CustomSecureField(title: "Password", text: $viewModel.password)
             
             NavigationLink {
                 HomeTabView()
@@ -34,8 +29,8 @@ struct LoginView: View {
                 Text("Login")
             }
             .buttonStyle(PrimaryButtonStyle())
-            .disabled(buttonDisabled)
-            
+            .disabled(!viewModel.formIsValid)
+
             Spacer()
             
             HStack {
