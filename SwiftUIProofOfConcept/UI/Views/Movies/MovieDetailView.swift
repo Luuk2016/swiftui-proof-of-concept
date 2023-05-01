@@ -8,17 +8,11 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    // MARK: Properties
     let movie: Movie
-    
-    static let stackDateFormat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E, dd MMM yyyy HH:mm:ss z"
-        return formatter
-    }()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            
             AsyncImage(url: movie.backdropImageURL) { image in
                 image
                     .resizable()

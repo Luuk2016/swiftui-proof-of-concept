@@ -9,6 +9,7 @@ import SwiftUI
 import AVKit
 
 struct HomeView: View {
+    // MARK: Properties
     @ObservedObject private var viewModel = HomeViewModel()
 
     var body: some View {

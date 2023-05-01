@@ -8,6 +8,7 @@
 import Foundation
 
 struct Movie: Codable, Hashable, Identifiable {
+    // MARK: Properties
     let id: Int
     let title: String
     let releaseDate: String

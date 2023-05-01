@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct MoviesView: View {
+    // MARK: Properties
     @ObservedObject private var viewModel = MoviesViewModel()
 
     var body: some View {
         ScrollView {
             LazyVStack() {
+                if viewModel.topRatedMovies.isEmpty {
+                    Text("No results")
+                }
                 ForEach(viewModel.topRatedMovies) { movie in
                     NavigationLink {
                         MovieDetailView(movie: movie)
@@ -27,7 +31,7 @@ struct MoviesView: View {
     }
 }
 
-struct ArticlesView_Previews: PreviewProvider {
+struct MoviesView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             MoviesView()

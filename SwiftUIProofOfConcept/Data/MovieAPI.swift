@@ -11,11 +11,12 @@ import Combine
 final class MovieAPI {
     // MARK: Properties
     private var cancellables: [AnyCancellable] = []
-    private let apiKey = "f829d6f95757da6cb795e8aae1c7685b"
+    private let baseURL: String = "https://api.themoviedb.org/3"
+    private let apiKey: String = "f829d6f95757da6cb795e8aae1c7685b"
 
     // MARK: Methods
     func getTopRatedMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
-        let url = URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=" + apiKey + "&language=en-US&page=1")!
+        let url = URL(string: baseURL + "/movie/top_rated?api_key=" + apiKey + "&language=en-US&page=1")!
         execute(type: MovieAPIResponse.self, url: url, completion: { result in
             switch result {
             case .success(let response):
@@ -27,7 +28,7 @@ final class MovieAPI {
     }
     
     func getTrendingMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
-        let url = URL(string: "https://api.themoviedb.org/3/trending/movie/day?api_key=" + apiKey + "&language=en-US&page=1")!
+        let url = URL(string: baseURL + "/trending/movie/day?api_key=" + apiKey + "&language=en-US&page=1")!
         execute(type: MovieAPIResponse.self, url: url, completion: { result in
             switch result {
             case .success(let response):

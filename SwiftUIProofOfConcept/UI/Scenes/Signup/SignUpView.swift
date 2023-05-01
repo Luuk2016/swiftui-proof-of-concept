@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
+    // MARK: Properties
     @ObservedObject private var viewModel: SignUpViewModel = SignUpViewModel()
     
     var body: some View {

@@ -9,10 +9,11 @@ import Foundation
 import Combine
 
 final class LoginViewModel: ObservableObject {
+    // MARK: - Properties
     @Published var email: String = ""
     @Published var password: String = ""
     
-    @Published var formIsValid: Bool = false
+    @Published private(set) var formIsValid: Bool = false
     
     private var publishers = Set<AnyCancellable>()
     

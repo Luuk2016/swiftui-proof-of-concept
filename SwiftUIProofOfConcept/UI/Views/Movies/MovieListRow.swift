@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieListRow: View {
+    // MARK: Properties
     var movie: Movie
     
     var body: some View {

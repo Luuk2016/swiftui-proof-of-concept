@@ -9,9 +9,9 @@ import SwiftUI
 import AVKit
 
 struct CurrentlyPlayingCard: View {
+    // MARK: Properties
     var movieName: String
     var videoURL: URL
-    
     
     var body: some View {
         VStack(spacing: 0) {

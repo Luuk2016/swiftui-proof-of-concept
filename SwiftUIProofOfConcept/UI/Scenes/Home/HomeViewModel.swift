@@ -8,10 +8,12 @@
 import Foundation
 
 final class HomeViewModel: ObservableObject {
-    @Published var trendingMovies: [Movie] = []
+    // MARK: - Properties
+    @Published private(set) var trendingMovies: [Movie] = []
     
     private let movieAPI: MovieAPI = MovieAPI()
     
+    // MARK: Methods
     func getTrendingMovies() {
         movieAPI.getTrendingMovies(completion: { result in
             switch result {

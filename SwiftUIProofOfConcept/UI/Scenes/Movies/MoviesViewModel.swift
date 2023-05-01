@@ -8,10 +8,11 @@
 import Foundation
 
 final class MoviesViewModel: ObservableObject {
-    @Published var topRatedMovies: [Movie] = []
+    @Published private(set) var topRatedMovies: [Movie] = []
     
     private let movieAPI: MovieAPI = MovieAPI()
     
+    // MARK: Methods
     func getTopRatedMovies() {
         movieAPI.getTopRatedMovies(completion: { result in
             switch result {

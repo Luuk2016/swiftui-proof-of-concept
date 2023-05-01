@@ -9,12 +9,13 @@ import Foundation
 import Combine
 
 final class SignUpViewModel: ObservableObject {
+    // MARK: - Properties
     @Published var fullName: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var termsAndConditions: Bool = false
     
-    @Published var formIsValid: Bool = false
+    @Published private(set) var formIsValid: Bool = false
     
     private var publishers = Set<AnyCancellable>()
     

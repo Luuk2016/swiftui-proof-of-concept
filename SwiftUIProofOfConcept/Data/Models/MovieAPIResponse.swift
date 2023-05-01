@@ -8,5 +8,6 @@
 import Foundation
 
 struct MovieAPIResponse: Decodable {
+    // MARK: Properties
     let results: [Movie]
 }

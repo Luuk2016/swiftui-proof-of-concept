@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-
+    // MARK: Properties
     var body: some View {
         VStack {
             Text("This PoC application demonstrates the use of SwiftUI as a possible alternative to UIKit.")

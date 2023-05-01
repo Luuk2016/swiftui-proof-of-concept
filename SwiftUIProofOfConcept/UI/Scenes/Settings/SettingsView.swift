@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    // MARK: Properties
     @ObservedObject var themeRepository: ThemeRepository = ThemeRepository.shared
         
     var body: some View {
