@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     // MARK: Properties
     @ObservedObject var themeRepository: ThemeRepository = ThemeRepository.shared
-        
+
     var body: some View {
         VStack {
             List {
@@ -23,7 +23,7 @@ struct SettingsView: View {
                     }
                     .pickerStyle(.segmented)
                 }
-                
+
                 Section(header: Text("Actions")) {
                     NavigationLink {
                         WelcomeView()
@@ -31,7 +31,7 @@ struct SettingsView: View {
                         Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
                     }
                 }
-                
+
                 Section(header: Text("About")) {
                     HStack {
                         Text("Developer")

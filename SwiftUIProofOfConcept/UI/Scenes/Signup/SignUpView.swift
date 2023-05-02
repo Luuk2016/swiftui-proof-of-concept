@@ -10,27 +10,27 @@ import SwiftUI
 struct SignUpView: View {
     // MARK: Properties
     @ObservedObject private var viewModel: SignUpViewModel = SignUpViewModel()
-    
+
     var body: some View {
         VStack(spacing: 18) {
             Spacer()
-            
+
             Text("Create an account")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.bottom, 25)
-            
+
             CustomTextField(title: "Full name", text: $viewModel.fullName)
-            
+
             CustomTextField(title: "Email address", text: $viewModel.email)
-            
+
             CustomSecureField(title: "Password", text: $viewModel.password)
-                        
+
             Toggle(isOn: $viewModel.termsAndConditions) {
                 Text("I agree with the terms & conditions")
             }
             .padding(.bottom, 20)
-            
+
             NavigationLink {
                 HomeTabView()
             } label: {
@@ -38,15 +38,16 @@ struct SignUpView: View {
             }
             .buttonStyle(PrimaryButtonStyle())
             .disabled(!viewModel.formIsValid)
-            
+
             Spacer()
-            
+
             HStack {
                 Text("Already have an account?")
-                
+
                 NavigationLink("Login") {
                     LoginView()
-                }.foregroundColor(Color("SecondaryColor"))
+                }
+                .foregroundColor(Color("SecondaryColor"))
             }
         }
         .padding()

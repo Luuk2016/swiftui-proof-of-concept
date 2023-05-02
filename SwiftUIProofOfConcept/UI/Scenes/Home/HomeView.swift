@@ -24,7 +24,7 @@ struct HomeView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
-                
+
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(viewModel.trendingMovies) { movie in
@@ -34,10 +34,11 @@ struct HomeView: View {
                                 TrendingMovieCard(movie: movie)
                             }
                         }
-                    }.padding(.horizontal)
+                    }
+                    .padding(.horizontal)
                 }
             }
-            
+
             VStack {
                 HStack {
                     Text("Currently playing")
@@ -45,9 +46,9 @@ struct HomeView: View {
                         .fontWeight(.heavy)
                     Spacer()
                 }
-                                
+
                 CurrentlyPlayingCard(movieName: "Big Buck Bunny", videoURL: URL(string: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")!)
-                
+
                 CurrentlyPlayingCard(movieName: "Elephants Dream", videoURL: URL(string: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4")!)
             }
             .padding(.horizontal)

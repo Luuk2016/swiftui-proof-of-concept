@@ -14,11 +14,11 @@ final class SignUpViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var termsAndConditions: Bool = false
-    
+
     @Published private(set) var formIsValid: Bool = false
-    
+
     private var publishers = Set<AnyCancellable>()
-    
+
     init() {
         isSignUpFormValidPublisher
             .receive(on: RunLoop.main)
@@ -35,16 +35,16 @@ private extension SignUpViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     var isEmailValidPublisher: AnyPublisher<Bool, Never> {
         $email
             .map { email in
-                let emailPredicate = NSPredicate(format:"SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+                let emailPredicate = NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
                 return emailPredicate.evaluate(with: email)
             }
             .eraseToAnyPublisher()
     }
-    
+
     var isPasswordValidPublisher: AnyPublisher<Bool, Never> {
         $password
             .map { password in
@@ -52,7 +52,7 @@ private extension SignUpViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     var confirmedTermsAndConditionsPublisher: AnyPublisher<Bool, Never> {
         $termsAndConditions
             .map { termsAndConditions in
@@ -60,7 +60,7 @@ private extension SignUpViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     var isSignUpFormValidPublisher: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest4(
             isFullNameValidPublisher,

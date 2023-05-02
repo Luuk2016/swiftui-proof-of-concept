@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeTabView: View {
     // MARK: Properties
     @State var selection: String = "Home"
-    
+
     var body: some View {
         TabView(selection: $selection) {
             HomeView()

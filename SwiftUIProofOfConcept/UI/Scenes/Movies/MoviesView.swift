@@ -13,7 +13,7 @@ struct MoviesView: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack() {
+            LazyVStack {
                 if viewModel.topRatedMovies.isEmpty {
                     Text("No results")
                 }
@@ -25,7 +25,8 @@ struct MoviesView: View {
                     }
                 }
             }
-        }.task {
+        }
+        .task {
             viewModel.getTopRatedMovies()
         }
     }

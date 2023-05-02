@@ -16,14 +16,14 @@ struct CustomTextField: View {
         self.title = title
         self._text = text
     }
-    
+
     var body: some View {
         TextField(title, text: $text)
             .font(.title3)
             .padding(.horizontal)
             .frame(maxWidth: .infinity)
             .shadow(color: Color.black.opacity(0.08), radius: 60, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 16)
-        
+
         Divider()
             .padding(.horizontal)
             .padding(.bottom, 20)

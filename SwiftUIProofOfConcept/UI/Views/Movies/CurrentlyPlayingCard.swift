@@ -12,13 +12,13 @@ struct CurrentlyPlayingCard: View {
     // MARK: Properties
     var movieName: String
     var videoURL: URL
-    
+
     var body: some View {
         VStack(spacing: 0) {
             VideoPlayer(player: AVPlayer(url: videoURL))
                 .frame(height: 240)
                 .foregroundColor(.white)
-            
+
             HStack {
                Text(movieName)
                    .foregroundColor(.white)
@@ -26,7 +26,7 @@ struct CurrentlyPlayingCard: View {
                Spacer()
             }
             .padding()
-            .background(Color(red:61/255,green:61/255,blue:88/255))
+            .background(Color(red: 61/255, green: 61/255, blue: 88/255))
        }
        .cornerRadius(10)
     }

@@ -12,11 +12,11 @@ final class LoginViewModel: ObservableObject {
     // MARK: - Properties
     @Published var email: String = ""
     @Published var password: String = ""
-    
+
     @Published private(set) var formIsValid: Bool = false
-    
+
     private var publishers = Set<AnyCancellable>()
-    
+
     init() {
         isLoginFormValidPublisher
             .receive(on: RunLoop.main)
@@ -29,12 +29,12 @@ private extension LoginViewModel {
     var isEmailValidPublisher: AnyPublisher<Bool, Never> {
         $email
             .map { email in
-                let emailPredicate = NSPredicate(format:"SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+                let emailPredicate = NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
                 return emailPredicate.evaluate(with: email)
             }
             .eraseToAnyPublisher()
     }
-    
+
     var isPasswordValidPublisher: AnyPublisher<Bool, Never> {
         $password
             .map { password in
@@ -42,7 +42,7 @@ private extension LoginViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     var isLoginFormValidPublisher: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest(
             isEmailValidPublisher,

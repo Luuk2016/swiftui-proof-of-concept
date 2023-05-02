@@ -10,20 +10,20 @@ import SwiftUI
 struct LoginView: View {
     // MARK: Properties
     @ObservedObject private var viewModel: LoginViewModel = LoginViewModel()
-    
+
     var body: some View {
         VStack {
             Spacer()
-            
+
             Text("Log in to your account")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.bottom, 30)
-                        
+
             CustomTextField(title: "Email address", text: $viewModel.email)
-            
+
             CustomSecureField(title: "Password", text: $viewModel.password)
-            
+
             NavigationLink {
                 HomeTabView()
             } label: {
@@ -33,10 +33,10 @@ struct LoginView: View {
             .disabled(!viewModel.formIsValid)
 
             Spacer()
-            
+
             HStack {
                 Text("Don't have an account yet?")
-                
+
                 NavigationLink("Sign up") {
                     SignUpView()
                 }.foregroundColor(Color("SecondaryColor"))

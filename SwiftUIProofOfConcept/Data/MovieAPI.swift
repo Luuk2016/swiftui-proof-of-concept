@@ -26,7 +26,7 @@ final class MovieAPI {
             }
         })
     }
-    
+
     func getTrendingMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
         let url = URL(string: baseURL + "/trending/movie/day?api_key=" + apiKey + "&language=en-US&page=1")!
         execute(type: MovieAPIResponse.self, url: url, completion: { result in
@@ -38,10 +38,10 @@ final class MovieAPI {
             }
         })
     }
-    
+
     private func execute<T: Decodable>(type: T.Type, url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         URLSession.shared.dataTaskPublisher(for: url)
-            .map( { $0.data })
+            .map({ $0.data })
             .decode(type: T.self, decoder: JSONDecoder())
             .sink(
                 receiveCompletion: { result in

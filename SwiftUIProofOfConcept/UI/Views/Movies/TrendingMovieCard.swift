@@ -10,21 +10,26 @@ import SwiftUI
 struct TrendingMovieCard: View {
     // MARK: Properties
     var movie: Movie
-    
+
     var body: some View {
         ZStack(alignment: .bottom) {
-           AsyncImage(url: movie.backdropImageURL) { image in
-               image
-                   .resizable()
-                   .scaledToFill()
-                   .frame(width: 340, height: 240)
-           } placeholder: {
-               Rectangle()
-                   .fill(Color(red:61/255,green:61/255,blue:88/255))
-                   .frame(width: 340, height: 240)
-           }
+            AsyncImage(url: movie.backdropImageURL) { phase in
+                switch phase {
+                case .failure:
+                    Text("Image couldn't be loaded")
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 340, height: 240)
+                default:
+                    Rectangle()
+                        .fill(Color(red: 61/255, green: 61/255, blue: 88/255))
+                        .frame(width: 340, height: 240)
+                }
+            }
 
-           VStack {
+            VStack {
                HStack {
                    Text(movie.title)
                        .foregroundColor(.white)
@@ -38,11 +43,11 @@ struct TrendingMovieCard: View {
                    Text(movie.releaseDate)
                }
                .foregroundColor(.yellow)
-           }
-           .padding()
-           .background(Color(red:61/255,green:61/255,blue:88/255))
-       }
-       .cornerRadius(10)
+            }
+            .padding()
+            .background(Color(red: 61/255, green: 61/255, blue: 88/255))
+        }
+        .cornerRadius(10)
     }
 }
 

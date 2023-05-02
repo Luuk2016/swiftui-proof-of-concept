@@ -13,11 +13,11 @@ struct WelcomeView: View {
         VStack {
             Text("This PoC application demonstrates the use of SwiftUI as a possible alternative to UIKit.")
                 .multilineTextAlignment(.center)
-            
+
             Spacer()
-            
+
             Image("onboard-vector")
-            
+
             Spacer()
 
             NavigationLink {
@@ -26,17 +26,17 @@ struct WelcomeView: View {
                 Text("Get started")
             }
             .buttonStyle(PrimaryButtonStyle())
-                        
+
             NavigationLink {
                 LoginView()
-            } label : {
+            } label: {
                 Text("Already have an account?")
             }
             .buttonStyle(SecondaryButtonStyle())
-            
+
             NavigationLink {
                 HomeTabView()
-            } label : {
+            } label: {
                 Text("Skip")
             }
             .buttonStyle(SecondaryButtonStyle())

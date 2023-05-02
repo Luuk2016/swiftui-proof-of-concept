@@ -10,14 +10,14 @@ import SwiftUI
 final class ThemeRepository: ObservableObject {
     // MARK: Properties
     static let shared = ThemeRepository()
-    
+
     @AppStorage("selectedTheme") var selectedTheme: Theme = .system
-    
+
     private init() {}
-    
+
     // MARK: Methods
     func getPreferredColorScheme() -> ColorScheme? {
-        switch(selectedTheme) {
+        switch selectedTheme {
         case .dark:
             return .dark
         case .light:

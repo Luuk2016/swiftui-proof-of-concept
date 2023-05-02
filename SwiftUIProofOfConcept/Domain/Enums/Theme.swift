@@ -11,7 +11,7 @@ enum Theme: Int, CaseIterable {
     case dark
     case light
     case system
-    
+
     var friendlyName: String {
         switch self {
         case .dark:

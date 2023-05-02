@@ -10,22 +10,27 @@ import SwiftUI
 struct MovieListRow: View {
     // MARK: Properties
     var movie: Movie
-    
+
     var body: some View {
         HStack {
-            AsyncImage(url: movie.posterImageURL) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 80, height: 120)
-            } placeholder: {
-                ProgressView()
-                    .frame(width: 80, height: 120)
+            AsyncImage(url: movie.posterImageURL) { phase in
+                switch phase {
+                case .failure:
+                    Text("Image couldn't be loaded")
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 80, height: 120)
+                default:
+                    ProgressView()
+                        .frame(width: 80, height: 120)
+                }
             }
             .clipped()
             .cornerRadius(10)
 
-            VStack(alignment:.leading) {
+            VStack(alignment: .leading) {
                 Text(movie.title)
                     .foregroundColor(.white)
                     .font(.title3)
