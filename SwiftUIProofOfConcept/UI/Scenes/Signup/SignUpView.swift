@@ -17,7 +17,7 @@ struct SignUpView: View {
 
             Text("Create an account")
                 .font(.largeTitle)
-                .fontWeight(.bold)
+                .bold()
                 .padding(.bottom, 25)
 
             CustomTextField(title: "Full name", text: $viewModel.fullName)

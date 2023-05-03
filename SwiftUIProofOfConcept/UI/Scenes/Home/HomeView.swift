@@ -10,7 +10,7 @@ import AVKit
 
 struct HomeView: View {
     // MARK: Properties
-    @ObservedObject private var viewModel = HomeViewModel()
+    @ObservedObject private var viewModel: HomeViewModel = HomeViewModel()
 
     var body: some View {
         ScrollView {

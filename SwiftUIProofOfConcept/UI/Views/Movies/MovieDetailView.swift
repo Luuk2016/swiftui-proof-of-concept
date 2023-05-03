@@ -45,7 +45,8 @@ struct MovieDetailView: View {
 
             VStack(alignment: .leading, spacing: 5) {
                 Text("Details")
-                    .font(.title3.bold())
+                    .font(.title3)
+                    .bold()
 
                 HStack {
                     Image(systemName: "hand.thumbsup.fill")

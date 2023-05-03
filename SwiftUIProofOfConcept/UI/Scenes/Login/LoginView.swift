@@ -17,7 +17,7 @@ struct LoginView: View {
 
             Text("Log in to your account")
                 .font(.largeTitle)
-                .fontWeight(.bold)
+                .bold()
                 .padding(.bottom, 30)
 
             CustomTextField(title: "Email address", text: $viewModel.email)

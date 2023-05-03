@@ -9,7 +9,7 @@ import SwiftUI
 
 final class ThemeRepository: ObservableObject {
     // MARK: Properties
-    static let shared = ThemeRepository()
+    static let shared: ThemeRepository = ThemeRepository()
 
     @AppStorage("selectedTheme") var selectedTheme: Theme = .system
 

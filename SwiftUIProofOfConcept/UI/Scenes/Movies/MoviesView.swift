@@ -13,15 +13,16 @@ struct MoviesView: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack {
+            LazyVStack() {
                 if viewModel.topRatedMovies.isEmpty {
                     Text("No results")
-                }
-                ForEach(viewModel.topRatedMovies) { movie in
-                    NavigationLink {
-                        MovieDetailView(movie: movie)
-                    } label: {
-                        MovieListRow(movie: movie)
+                } else {
+                    ForEach(viewModel.topRatedMovies) { movie in
+                        NavigationLink {
+                            MovieDetailView(movie: movie)
+                        } label: {
+                            MovieListRow(movie: movie)
+                        }
                     }
                 }
             }
