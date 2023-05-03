@@ -25,7 +25,7 @@ struct TrendingMovieCard: View {
                 default:
                     Rectangle()
                         .fill(Color(red: 61/255, green: 61/255, blue: 88/255))
-                        .frame(width: 340, height: 240)
+                        .frame(width: .greatestFiniteMagnitude, height: 240)
                 }
             }
 

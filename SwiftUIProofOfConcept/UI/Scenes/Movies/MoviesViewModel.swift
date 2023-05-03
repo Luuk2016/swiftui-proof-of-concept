@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class MoviesViewModel: ObservableObject {
     @Published private(set) var topRatedMovies: [Movie] = []
 
@@ -14,15 +15,12 @@ final class MoviesViewModel: ObservableObject {
 
     // MARK: Methods
     func getTopRatedMovies() {
-        movieAPI.getTopRatedMovies(completion: { result in
-            switch result {
-            case .success(let movies):
-                DispatchQueue.main.async {
-                    self.topRatedMovies = movies
-                }
-            case .failure(let error):
-                print("Error \(error)")
+        Task {
+            do {
+                self.topRatedMovies = try await movieAPI.getTopRatedMovies()
+            } catch {
+                print("Request failed with error: \(error)")
             }
-        })
+        }
     }
 }
