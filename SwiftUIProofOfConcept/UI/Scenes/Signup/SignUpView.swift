@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     // MARK: Properties
-    @ObservedObject private var viewModel: SignUpViewModel = SignUpViewModel()
+    @StateObject private var viewModel: SignUpViewModel = SignUpViewModel()
 
     var body: some View {
         VStack(spacing: 18) {
@@ -32,7 +32,7 @@ struct SignUpView: View {
             .padding(.bottom, 20)
 
             NavigationLink {
-                HomeTabView()
+                ContentView()
             } label: {
                 Text("Register")
             }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MoviesView: View {
     // MARK: Properties
-    @ObservedObject private var viewModel = MoviesViewModel()
+    @StateObject private var viewModel = MoviesViewModel()
 
     var body: some View {
         ScrollView {
@@ -30,6 +30,8 @@ struct MoviesView: View {
         .task {
             viewModel.getTopRatedMovies()
         }
+        .navigationTitle("Movies")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     // MARK: Properties
-    @ObservedObject private var viewModel: LoginViewModel = LoginViewModel()
+    @StateObject private var viewModel: LoginViewModel = LoginViewModel()
 
     var body: some View {
         VStack {
@@ -25,7 +25,7 @@ struct LoginView: View {
             CustomSecureField(title: "Password", text: $viewModel.password)
 
             NavigationLink {
-                HomeTabView()
+                ContentView()
             } label: {
                 Text("Login")
             }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     // MARK: Properties
-    @ObservedObject var themeRepository: ThemeRepository = ThemeRepository.shared
+    @StateObject var themeRepository: ThemeRepository = ThemeRepository.shared
 
     var body: some View {
         VStack {
@@ -51,6 +51,8 @@ struct SettingsView: View {
                 }
             }
         }
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
