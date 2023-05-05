@@ -10,7 +10,7 @@ import AVKit
 
 struct HomeView: View {
     // MARK: Properties
-    @ObservedObject private var viewModel: HomeViewModel = HomeViewModel()
+    @StateObject private var viewModel: HomeViewModel = HomeViewModel()
 
     var body: some View {
         ScrollView {
@@ -56,6 +56,8 @@ struct HomeView: View {
         .task {
             viewModel.getTrendingMovies()
         }
+        .navigationTitle("Home")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

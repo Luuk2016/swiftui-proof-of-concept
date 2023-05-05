@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class HomeViewModel: ObservableObject {
     // MARK: - Properties
     @Published private(set) var trendingMovies: [Movie] = []
@@ -15,15 +16,12 @@ final class HomeViewModel: ObservableObject {
 
     // MARK: Methods
     func getTrendingMovies() {
-        movieAPI.getTrendingMovies(completion: { result in
-            switch result {
-            case .success(let movies):
-                DispatchQueue.main.async {
-                    self.trendingMovies = movies
-                }
-            case .failure(let error):
-                print("Error \(error)")
+        Task {
+            do {
+                self.trendingMovies = try await movieAPI.getTrendingMovies()
+            } catch {
+                print("Request failed with error: \(error)")
             }
-        })
+        }
     }
 }

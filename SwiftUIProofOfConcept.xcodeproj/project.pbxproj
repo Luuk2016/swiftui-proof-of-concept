@@ -13,7 +13,7 @@
 		1566884029F16416005C446B /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566883F29F16416005C446B /* CustomSecureField.swift */; };
 		1566884229F1646B005C446B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566884129F1646B005C446B /* CustomTextField.swift */; };
 		1566884529F16B30005C446B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566884429F16B30005C446B /* SignUpView.swift */; };
-		1566884E29F1898C005C446B /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566884D29F1898C005C446B /* HomeTabView.swift */; };
+		1566884E29F1898C005C446B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566884D29F1898C005C446B /* ContentView.swift */; };
 		1566885129F18C77005C446B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566885029F18C77005C446B /* SettingsView.swift */; };
 		1566885329F19315005C446B /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566885229F19315005C446B /* MoviesView.swift */; };
 		156DA7EF29F0281000720BC7 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156DA7EE29F0281000720BC7 /* Application.swift */; };
@@ -44,7 +44,7 @@
 		1566883F29F16416005C446B /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		1566884129F1646B005C446B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1566884429F16B30005C446B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		1566884D29F1898C005C446B /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		1566884D29F1898C005C446B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1566885029F18C77005C446B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1566885229F19315005C446B /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
 		156DA7EB29F0281000720BC7 /* SwiftUIProofOfConcept.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIProofOfConcept.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +151,8 @@
 		156DA7FC29F0319E00720BC7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				156DA7F029F0281000720BC7 /* WelcomeView.swift */,
+				1566884D29F1898C005C446B /* ContentView.swift */,
+				1598CD8E2A052704007B8E3E /* Welcome */,
 				15DF9DEF29F6B7490047EF7B /* Signup */,
 				15DF9DE429F699D60047EF7B /* Settings */,
 				15DF9DE329F699C10047EF7B /* Movies */,
@@ -159,6 +160,14 @@
 				15DF9DEA29F6B2C80047EF7B /* Home */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1598CD8E2A052704007B8E3E /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				156DA7F029F0281000720BC7 /* WelcomeView.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		15DF9DCF29F6731D0047EF7B /* Repositories */ = {
@@ -214,7 +223,6 @@
 		15DF9DEA29F6B2C80047EF7B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1566884D29F1898C005C446B /* HomeTabView.swift */,
 				15F292C729F289A200D84A0C /* HomeView.swift */,
 				15DF9DEB29F6B2D40047EF7B /* HomeViewModel.swift */,
 			);
@@ -345,7 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1566884E29F1898C005C446B /* HomeTabView.swift in Sources */,
+				1566884E29F1898C005C446B /* ContentView.swift in Sources */,
 				15DF9DEC29F6B2D40047EF7B /* HomeViewModel.swift in Sources */,
 				15F292D829F2D9B400D84A0C /* MovieListRow.swift in Sources */,
 				15DF9DF129F6C0770047EF7B /* CurrentlyPlayingCard.swift in Sources */,

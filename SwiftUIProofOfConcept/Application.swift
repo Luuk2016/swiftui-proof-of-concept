@@ -13,10 +13,8 @@ struct Application: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                WelcomeView()
-                    .preferredColorScheme(themeRepository.getPreferredColorScheme())
-            }
+            WelcomeView()
+                .preferredColorScheme(themeRepository.getPreferredColorScheme())
         }
     }
 }
