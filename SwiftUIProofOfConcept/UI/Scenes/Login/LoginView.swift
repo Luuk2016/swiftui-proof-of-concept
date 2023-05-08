@@ -16,18 +16,14 @@ struct LoginView: View {
             Spacer()
 
             Text("Log in to your account")
-                .font(.largeTitle)
-                .bold()
-                .padding(.bottom, 30)
-
+                .font(.largeTitle.bold())
+            
             CustomTextField(title: "Email address", text: $viewModel.email)
 
             CustomSecureField(title: "Password", text: $viewModel.password)
 
-            NavigationLink {
+            NavigationLink("Login") {
                 ContentView()
-            } label: {
-                Text("Login")
             }
             .buttonStyle(PrimaryButtonStyle())
             .disabled(!viewModel.formIsValid)
@@ -39,7 +35,8 @@ struct LoginView: View {
 
                 NavigationLink("Sign up") {
                     SignUpView()
-                }.foregroundColor(Color("SecondaryColor"))
+                }
+                .foregroundColor(Color("SecondaryColor"))
             }
         }
         .padding()

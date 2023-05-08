@@ -23,6 +23,7 @@ struct CurrentlyPlayingCard: View {
                Text(movieName)
                    .foregroundColor(.white)
                    .fontWeight(.heavy)
+                
                Spacer()
             }
             .padding()

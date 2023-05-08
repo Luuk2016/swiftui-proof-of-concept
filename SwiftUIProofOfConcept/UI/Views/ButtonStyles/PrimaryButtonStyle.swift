@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PrimaryButtonStyle: ButtonStyle {
+    // MARK: Methods
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.title3.bold())

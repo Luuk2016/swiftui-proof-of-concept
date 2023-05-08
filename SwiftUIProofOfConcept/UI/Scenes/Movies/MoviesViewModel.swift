@@ -9,6 +9,7 @@ import Foundation
 
 @MainActor
 final class MoviesViewModel: ObservableObject {
+    // MARK: Properties
     @Published private(set) var topRatedMovies: [Movie] = []
 
     private let movieAPI: MovieAPI = MovieAPI()

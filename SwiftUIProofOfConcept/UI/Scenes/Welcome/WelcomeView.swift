@@ -21,24 +21,18 @@ struct WelcomeView: View {
 
                 Spacer()
 
-                NavigationLink {
+                NavigationLink("Get started") {
                     SignUpView()
-                } label: {
-                    Text("Get started")
                 }
                 .buttonStyle(PrimaryButtonStyle())
 
-                NavigationLink {
+                NavigationLink("Already have an account?") {
                     LoginView()
-                } label: {
-                    Text("Already have an account?")
                 }
                 .buttonStyle(SecondaryButtonStyle())
 
-                NavigationLink {
+                NavigationLink("Skip") {
                     ContentView()
-                } label: {
-                    Text("Skip")
                 }
                 .buttonStyle(SecondaryButtonStyle())
             }

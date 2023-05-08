@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 final class LoginViewModel: ObservableObject {
     // MARK: - Properties
     @Published var email: String = ""
@@ -17,6 +18,7 @@ final class LoginViewModel: ObservableObject {
 
     private var publishers = Set<AnyCancellable>()
 
+    // MARK: Methods
     init() {
         isLoginFormValidPublisher
             .receive(on: RunLoop.main)
@@ -26,6 +28,7 @@ final class LoginViewModel: ObservableObject {
 }
 
 private extension LoginViewModel {
+    // MARK: - Properties
     var isEmailValidPublisher: AnyPublisher<Bool, Never> {
         $email
             .map { email in
@@ -44,12 +47,10 @@ private extension LoginViewModel {
     }
 
     var isLoginFormValidPublisher: AnyPublisher<Bool, Never> {
-        Publishers.CombineLatest(
-            isEmailValidPublisher,
-            isPasswordValidPublisher)
-        .map { isEmailValid, isPasswordValid in
-            return isEmailValid && isPasswordValid
-        }
-        .eraseToAnyPublisher()
+        Publishers.CombineLatest(isEmailValidPublisher, isPasswordValidPublisher)
+            .map { isEmailValid, isPasswordValid in
+                return isEmailValid && isPasswordValid
+            }
+            .eraseToAnyPublisher()
     }
 }

@@ -31,10 +31,8 @@ struct SignUpView: View {
             }
             .padding(.bottom, 20)
 
-            NavigationLink {
+            NavigationLink("Register") {
                 ContentView()
-            } label: {
-                Text("Register")
             }
             .buttonStyle(PrimaryButtonStyle())
             .disabled(!viewModel.formIsValid)

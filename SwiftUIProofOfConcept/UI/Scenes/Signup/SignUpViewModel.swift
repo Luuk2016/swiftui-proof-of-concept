@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 final class SignUpViewModel: ObservableObject {
     // MARK: - Properties
     @Published var fullName: String = ""
@@ -19,6 +20,7 @@ final class SignUpViewModel: ObservableObject {
 
     private var publishers = Set<AnyCancellable>()
 
+    // MARK: Methods
     init() {
         isSignUpFormValidPublisher
             .receive(on: RunLoop.main)
@@ -28,6 +30,7 @@ final class SignUpViewModel: ObservableObject {
 }
 
 private extension SignUpViewModel {
+    // MARK: - Properties
     var isFullNameValidPublisher: AnyPublisher<Bool, Never> {
         $fullName
             .map { name in
@@ -62,14 +65,10 @@ private extension SignUpViewModel {
     }
 
     var isSignUpFormValidPublisher: AnyPublisher<Bool, Never> {
-        Publishers.CombineLatest4(
-            isFullNameValidPublisher,
-            isEmailValidPublisher,
-            isPasswordValidPublisher,
-            confirmedTermsAndConditionsPublisher)
-        .map { isFullNameValid, isEmailValid, isPasswordValid, confirmedTermsAndConditions in
-            return isFullNameValid && isEmailValid && isPasswordValid && confirmedTermsAndConditions
-        }
-        .eraseToAnyPublisher()
+        Publishers.CombineLatest4(isFullNameValidPublisher, isEmailValidPublisher, isPasswordValidPublisher, confirmedTermsAndConditionsPublisher)
+            .map { isFullNameValid, isEmailValid, isPasswordValid, confirmedTermsAndConditions in
+                return isFullNameValid && isEmailValid && isPasswordValid && confirmedTermsAndConditions
+            }
+            .eraseToAnyPublisher()
     }
 }

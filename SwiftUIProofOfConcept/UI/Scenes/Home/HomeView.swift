@@ -21,6 +21,7 @@ struct HomeView: View {
                     Text("Trending movies")
                         .font(.title)
                         .fontWeight(.heavy)
+                    
                     Spacer()
                 }
                 .padding(.horizontal)
@@ -44,6 +45,7 @@ struct HomeView: View {
                     Text("Currently playing")
                         .font(.title)
                         .fontWeight(.heavy)
+                    
                     Spacer()
                 }
 

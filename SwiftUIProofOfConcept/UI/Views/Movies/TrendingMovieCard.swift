@@ -34,6 +34,7 @@ struct TrendingMovieCard: View {
                    Text(movie.title)
                        .foregroundColor(.white)
                        .fontWeight(.heavy)
+                   
                    Spacer()
                }
                HStack {
