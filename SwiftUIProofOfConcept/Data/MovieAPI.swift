@@ -10,7 +10,7 @@ import SwiftUI
 struct MovieAPI {
     // MARK: Properties
     private let baseURL: String = "https://api.themoviedb.org/3"
-    private let apiKey: String = "f829d6f95757da6cb795e8aae1c7685b"
+    private let apiKey: String = ""
     
     // MARK: Methods
     func getTopRatedMovies() async throws -> [Movie] {
